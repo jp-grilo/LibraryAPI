@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
-@RequestMapping("/Writer")
+@RequestMapping("/writer")
 public class WriterController {
     final WriterService writerService;
 
