@@ -5,7 +5,7 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "book-table")
-public class Book {
+public class BookModel {
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -15,10 +15,10 @@ public class Book {
     private String Name;
     @ManyToOne
     @JoinColumn
-    private Writer Writer;
+    private WriterModel WriterModel;
     @ManyToOne
     @JoinColumn
-    private Publisher Publisher;
+    private PublisherModel PublisherModel;
 
     public UUID getId() {
         return Id;
@@ -36,19 +36,19 @@ public class Book {
         Name = name;
     }
 
-    public com.library.LibraryAPI.Models.Writer getWriter() {
-        return Writer;
+    public WriterModel getWriter() {
+        return WriterModel;
     }
 
-    public void setWriter(com.library.LibraryAPI.Models.Writer writer) {
-        Writer = writer;
+    public void setWriter(WriterModel writerModel) {
+        WriterModel = writerModel;
     }
 
-    public com.library.LibraryAPI.Models.Publisher getPublisher() {
-        return Publisher;
+    public PublisherModel getPublisher() {
+        return PublisherModel;
     }
 
-    public void setPublisher(com.library.LibraryAPI.Models.Publisher publisher) {
-        Publisher = publisher;
+    public void setPublisher(PublisherModel publisherModel) {
+        PublisherModel = publisherModel;
     }
 }

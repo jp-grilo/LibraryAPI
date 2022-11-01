@@ -1,23 +1,22 @@
 package com.library.LibraryAPI.Models;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.List;
 import java.util.UUID;
 
 @Entity
-@Table(name = "writer-table")
-public class Writer implements Serializable {
+@Table(name = "publisher-table")
+public class PublisherModel {
+
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID Id;
-    @Column(nullable = false, unique = true)
+    @Column(name = "Name")
     private String Name;
     @OneToMany
-    @JoinColumn
-    private List<Book> WrittenBooks;
+    private List<BookModel> publishedBookModels;
 
     public UUID getId() {
         return Id;
@@ -35,11 +34,11 @@ public class Writer implements Serializable {
         Name = name;
     }
 
-    public List<Book> getWrittenBooks() {
-        return WrittenBooks;
+    public List<BookModel> getPublishedBooks() {
+        return publishedBookModels;
     }
 
-    public void setWrittenBooks(List<Book> writtenBooks) {
-        WrittenBooks = writtenBooks;
+    public void setPublishedBooks(List<BookModel> publishedBookModels) {
+        this.publishedBookModels = publishedBookModels;
     }
 }
